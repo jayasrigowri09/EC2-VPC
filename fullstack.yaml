@@ -1,8 +1,34 @@
 
 
-
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create EC2 Instance
 
 Parameters:
+
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.small
+      - t2.nano
+
+  ImageId:
+    Type: String
+    Default: ami-01a4f99c4ac11b03c
+  
+  MyAvailabilityZone:
+    Description: Select the AZ
+    Type: String
+    Default: ap-south-1a
+    AllowedValues:
+      - ap-south-1a
+      - ap-south-1b
+      - ap-south-1c
+
   VpcCIDR:
     Type: String
     Description: Enter the IP range.
@@ -16,6 +42,26 @@ Parameters:
 
 
 Resources:
+
+
+
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
+      SubnetId: !Ref PublicSubnet1
+      VpcId: !Ref MyVpc
+      KeyName: !Ref KeyName
+      SecurityGroups:
+        - !Ref MySecurityGroup
+      AvailabilityZone: !Ref MyAvailabilityZone
+
+      Tags:
+        - Key: Name
+          Value: Demoec2  
+
+
   MyVpc:
     Type: AWS::EC2::VPC
     Properties:
