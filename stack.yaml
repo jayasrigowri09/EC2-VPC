@@ -40,8 +40,15 @@ Resources:
     Properties:
       KeyName: MyKeyPair
 
-  
-      
+  MYVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref MyVpcBlock
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: Test-Vpc
 
   MyEC2Instance:
     Type: AWS::EC2::Instance
@@ -83,15 +90,7 @@ Resources:
       VpcId: !Ref MYVPC
 
 
-  MYVPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: !Ref MyVpcBlock
-      EnableDnsHostnames: true
-      EnableDnsSupport: true
-      Tags:
-        - Key: Name
-          Value: Test-Vpc
+  
   Subnet1:
     Type: AWS::EC2::Subnet
     Properties:
