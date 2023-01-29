@@ -52,9 +52,9 @@ Resources:
       SubnetId: !Ref Subnet1
       VPCID: !Ref MYVPC
 
-    Tags:
-      - Key: Name
-        Name: DemoEc2-Instance
+      Tags:
+        - Key: Name
+          Name: DemoEc2-Instance
 
   MYVPC:
     Type: AWS::EC2::VPC
@@ -125,6 +125,7 @@ Resources:
         FromPort: '22'
         ToPort: '22'
         Cidr: 0.0.0.0/0
+
       Tags:
         - Key: Name
           Value: EC2-SG
