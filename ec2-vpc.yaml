@@ -115,17 +115,16 @@ Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      Description: Allow http and ssh connection to the instance
+      GroupDescription: My SG with port 22, and 8080 inbound
       SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: '8080'
-        ToPort: '8080'
-        CidrIp: 0.0.0.0/0
-      - IpProtocol: tcp
-        FromPort: '22'
-        ToPort: '22'
-        Cidr: 0.0.0.0/0
-
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '8080'          
+          ToPort: '8080'
+          CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
           Value: EC2-SG
