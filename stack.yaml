@@ -54,7 +54,7 @@ Resources:
         
       AvailabilityZone: !Ref MyAvailabilityZone
       SubnetId: !Ref Subnet1
-      VPCID: !Ref MYVPC
+      VpcId: !Ref MYVPC
 
       Tags:
         - Key: Name
