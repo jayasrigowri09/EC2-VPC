@@ -9,6 +9,9 @@ Parameters:
     Default: 10.0.0.0/16
     Description: VPC CIDR 
 
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+
   Subnet1Block:
     Type: String
     Default: 10.0.1.0/24
@@ -35,17 +38,14 @@ Parameters:
     Description: The Amazon Linux AMI to use.
 
 Resources:
-  NewKeyPair:
-    Type: 'AWS::EC2::KeyPair'
-    Properties:
-      KeyName: MyKeyPair
+ 
 
   MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
       ImageID: !Ref AMI
       InstanceID: !Ref InstanceType
-      KeyName: !Ref NewKeyPair
+      KeyName: !Ref KeyName
       Securitygroups: !Ref SecurityGroup
         
       AvailabilityZone: !Ref MyAvailabilityZone
