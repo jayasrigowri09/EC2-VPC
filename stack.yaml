@@ -60,7 +60,7 @@ Resources:
         - !Ref MySecurityGroup
         
       AvailabilityZone: !Ref MyAvailabilityZone
-      VpcId: !Ref MYVPC
+      MYVPC: !Ref MYVPC
       SubnetId: !Ref Subnet1
     
 
