@@ -55,7 +55,7 @@ Resources:
     Properties:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
-      Keyname: !Ref NewKeyPair
+      NewKeyPair: !Ref NewKeyPair
       SecurityGroupIds: 
         - !Ref MySecurityGroup
         
