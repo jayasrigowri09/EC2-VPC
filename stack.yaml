@@ -43,6 +43,7 @@ Resources:
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
+      VpcId: !Ref MYVPC
       Description: My SG with port 22, and 8080 inbound
       SecurityGroupIngress:
         - IpProtocol: tcp
@@ -56,7 +57,7 @@ Resources:
       Tags:
         - Key: Name
           Value: EC2-SG
-      VpcId: !Ref MYVPC
+      
 
   MyEC2Instance:
     Type: AWS::EC2::Instance
