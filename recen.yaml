@@ -29,7 +29,7 @@ Parameters:
     Default: 10.0.0.0/16
 
  # create publicsubnet
-  PublicSubnetACIDR:
+  PublicSubnetCIDR:
     Type: String
     Description: choose publicsubnetcidr
     Default: 10.0.0.0/24
@@ -46,7 +46,7 @@ Resources:
       SecurityGroups:
         - !Ref MySecurityGroup
       AvailabilityZone: !Ref MyAvailabilityZone
-      SubnetId: !Ref PublicSubnet1
+      SubnetId: !Ref PublicSubnet
 
 
       Tags:
@@ -86,7 +86,7 @@ Resources:
       VpcId: !Ref MyVpc
       Tags:
          - Key: Name
-           Value: Public-TestSubnetA
+           Value: Public-TestSubnet
 
 
   RouteTable:
@@ -109,7 +109,7 @@ Resources:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       RouteTableId: !Ref RouteTable
-      SubnetId:  !Ref PublicSubnetA
+      SubnetId:  !Ref PublicSubnet
 
   MySecurityGroup:
     Type: AWS::EC2::SecurityGroup
