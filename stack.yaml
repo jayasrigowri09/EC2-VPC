@@ -46,7 +46,8 @@ Resources:
       ImageID: !Ref AMI
       InstanceID: !Ref InstanceType
       KeyName: !Ref NewKeyPair
-      Securitygroups: !Ref SecurityGroups
+      SecuritygroupIds: 
+        - !Ref SecurityGroups
         
       AvailabilityZone: !Ref MyAvailabilityZone
       SubnetId: !Ref Subnet1
