@@ -51,7 +51,7 @@ Resources:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       SubnetId: !Ref PublicSubnet1
-      VpcId: !Ref MyVpc
+     
       KeyName: !Ref KeyName
       SecurityGroups:
         - !Ref MySecurityGroup
