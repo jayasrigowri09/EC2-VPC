@@ -4,6 +4,8 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Create Ec2 Machine 
 
 Parameters:
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
   MyVpcBlock:
     Type: String
     Default: 10.0.0.0/16
@@ -35,11 +37,6 @@ Parameters:
     Description: The Amazon Linux AMI to use.
 
 Resources:
-  NewKeyPair:
-    Type: 'AWS::EC2::KeyPair'
-    Properties:
-      KeyName: MyKeyPair
-
   MYVPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -55,7 +52,7 @@ Resources:
     Properties:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
-      NewKeyPair: !Ref NewKeyPair
+      KeyName: !Ref KeyName
       SecurityGroupIds: 
         - !Ref MySecurityGroup
         
