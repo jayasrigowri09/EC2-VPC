@@ -46,7 +46,7 @@ Resources:
       ImageID: !Ref AMI
       InstanceID: !Ref InstanceType
       KeyName: !Ref NewKeyPair
-      Securitygroups: !Ref SecurityGroup
+      Securitygroups: !Ref SecurityGroups
         
       AvailabilityZone: !Ref MyAvailabilityZone
       SubnetId: !Ref Subnet1
@@ -112,10 +112,10 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref InternetGateway 
 
-  SecurityGroup:
-    Type: AWS::EC2::SecurityGroup
+  SecurityGroups:
+    Type: AWS::EC2::SecurityGroups
     Properties:
-      GroupDescription: My SG with port 22, and 8080 inbound
+      Description: My SG with port 22, and 8080 inbound
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: '22'
