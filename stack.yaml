@@ -40,6 +40,24 @@ Resources:
     Properties:
       KeyName: MyKeyPair
 
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      Description: My SG with port 22, and 8080 inbound
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '8080'          
+          ToPort: '8080'
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: EC2-SG
+      VpcId: !Ref MYVPC
+
   MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
@@ -47,7 +65,7 @@ Resources:
       InstanceID: !Ref InstanceType
       KeyName: !Ref NewKeyPair
       SecurityGroupIds: 
-        - !Ref MySecurityGroups
+        - !Ref MySecurityGroup
         
       AvailabilityZone: !Ref MyAvailabilityZone
       SubnetId: !Ref Subnet1
@@ -113,23 +131,7 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref InternetGateway 
 
-  MySecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      Description: My SG with port 22, and 8080 inbound
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: '8080'          
-          ToPort: '8080'
-          CidrIp: 0.0.0.0/0
-      Tags:
-        - Key: Name
-          Value: EC2-SG
-      VpcId: !Ref MYVPC
+ 
 
   
 
