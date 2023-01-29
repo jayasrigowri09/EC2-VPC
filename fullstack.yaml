@@ -43,15 +43,13 @@ Parameters:
 
 Resources:
 
-
-
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       SubnetId: !Ref PublicSubnet1
-     
+    
       KeyName: !Ref KeyName
       SecurityGroups:
         - !Ref MySecurityGroup
@@ -60,6 +58,7 @@ Resources:
       Tags:
         - Key: Name
           Value: Demoec2  
+      VpcId: !Ref MyVpc
 
 
   MyVpc:
