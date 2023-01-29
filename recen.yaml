@@ -43,7 +43,7 @@ Resources:
       ImageId: !Ref ImageId
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
-      SecurityGroups:
+      SecurityGroupIds:
         - !Ref MySecurityGroup
       AvailabilityZone: !Ref MyAvailabilityZone
       SubnetId: !Ref PublicSubnet1
