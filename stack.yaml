@@ -29,7 +29,7 @@ Parameters:
     Default: ap-south-1a
    
 
-  AMI:
+  ImageId:
     Type: String
     Default: ami-01a4f99c4ac11b03c
     Description: The Amazon Linux AMI to use.
@@ -46,8 +46,8 @@ Resources:
   MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageID: !Ref AMI
-      InstanceID: !Ref InstanceType
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
       KeyName: !Ref NewKeyPair
       SecurityGroupIds: 
         - !Ref MySecurityGroup
