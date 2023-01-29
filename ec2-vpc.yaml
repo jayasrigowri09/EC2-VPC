@@ -26,7 +26,7 @@ Parameters:
   MyAvailabilityZone:
     Description: Select the AZ
     Type: String
-    Default: ap-south-1
+    Default: ap-south-1a
    
 
   AMI:
@@ -60,8 +60,7 @@ Resources:
       EnableDnsSupport: true
       Tags:
         - Key: Name
-          Value: !Sub "${AWS::StackName}-MYVPC"
-
+          Value: Test-Vpc
   Subnet1:
     Type: AWS::EC2::Subnet
     Properties:
@@ -69,7 +68,7 @@ Resources:
       CidrBlock: !Ref Subnet1Block 
       Tags:
         - Key: Name
-          Value: !Sub "${AWS::StackName}-Subnet1"    
+          Value: !Sub Test-Subnet
       AvailabilityZone: 
         Fn::Select:
           - '0'
@@ -84,8 +83,7 @@ Resources:
       Tags: 
         - Key: Name
           Value: Public Subnets
-        - Key: Network
-          Value: Public   
+         
 
   Subnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
