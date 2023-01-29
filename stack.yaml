@@ -46,7 +46,7 @@ Resources:
       ImageID: !Ref AMI
       InstanceID: !Ref InstanceType
       KeyName: !Ref NewKeyPair
-      SecuritygroupIds: 
+      SecurityGroupIds: 
         - !Ref SecurityGroups
         
       AvailabilityZone: !Ref MyAvailabilityZone
