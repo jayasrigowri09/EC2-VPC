@@ -40,23 +40,7 @@ Resources:
     Properties:
       KeyName: MyKeyPair
 
-  MySecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      VpcId: !Ref MYVPC
-      Description: My SG with port 22, and 8080 inbound
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: '8080'          
-          ToPort: '8080'
-          CidrIp: 0.0.0.0/0
-      Tags:
-        - Key: Name
-          Value: EC2-SG
+  
       
 
   MyEC2Instance:
@@ -75,6 +59,29 @@ Resources:
       Tags:
         - Key: Name
           Name: DemoEc2-Instance
+
+
+
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      
+      GroupDescription: My SG with port 22 and 8080 inbound
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '8080'          
+          ToPort: '8080'
+          CidrIp: 0.0.0.0/0
+
+      Tags:
+        - Key: Name
+          Value: EC2-SG
+      VpcId: !Ref MYVPC
+
 
   MYVPC:
     Type: AWS::EC2::VPC
