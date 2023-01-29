@@ -63,7 +63,7 @@ Resources:
         - !Ref MySecurityGroup
       AvailabilityZone: !Ref MyAvailabilityZone
       SubnetId: !Ref Subnet1
-      VpcId: !Ref MyVpc
+      #VpcId: !Ref MyVpc
 
       Tags:
         - Key: Name
