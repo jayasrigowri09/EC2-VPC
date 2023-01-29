@@ -1,6 +1,3 @@
-
-
-
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Create Ec2 Machine and vpc
 
@@ -130,5 +127,3 @@ Resources:
         - Key: Name
           Value: EC2-SG
       VpcId: !Ref MyVpc  
-
-
