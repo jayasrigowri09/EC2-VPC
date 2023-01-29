@@ -52,6 +52,10 @@ Resources:
       SubnetId: !Ref Subnet1
       VPCID: !Ref MYVPC
 
+    Tags:
+      - Key: Name
+        Name: DemoEc2-Instance
+
   MYVPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -124,13 +128,11 @@ Resources:
       Tags:
         - Key: Name
           Value: EC2-SG
-      VpcId: !Ref MyVpc  
+      VpcId: !Ref MYVPC
 
   
 
-      Tags:
-      - Key: Name
-        Name: DemoEc2-Instance
+      
 
     
     
