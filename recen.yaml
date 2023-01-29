@@ -38,6 +38,26 @@ Parameters:
     Description: The Amazon Linux AMI to use.
 
 Resources:
+
+
+ SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      Description: Allow http and ssh connection to the instance
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        Cidr: 0.0.0.0/0
+  
+
+      Tags:
+      - Key: Name
+        Name: DemoEc2-Instance
  
 
   MyEC2Instance:
@@ -110,24 +130,7 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref InternetGateway 
 
-  SecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      Description: Allow http and ssh connection to the instance
-      SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: 80
-        ToPort: 80
-        CidrIp: 0.0.0.0/0
-      - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
-        Cidr: 0.0.0.0/0
-  
-
-      Tags:
-      - Key: Name
-        Name: DemoEc2-Instance
+ 
 
     
     
