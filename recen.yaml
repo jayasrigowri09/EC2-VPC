@@ -40,7 +40,7 @@ Parameters:
 Resources:
 
 
- SecurityGroup:
+  SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       Description: Allow http and ssh connection to the instance
