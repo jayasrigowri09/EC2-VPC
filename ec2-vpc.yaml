@@ -31,7 +31,7 @@ Parameters:
 
   AMI:
     Type: String
-    Default: 0cca134ec43cf708f
+    Default: ami-01a4f99c4ac11b03c
     Description: The Amazon Linux AMI to use.
 
 Resources:
