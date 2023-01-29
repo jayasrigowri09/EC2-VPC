@@ -121,6 +121,11 @@ Resources:
         FromPort: '22'
         ToPort: '22'
         Cidr: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: EC2-SG
+      VpcId: !Ref MyVpc  
+
   
 
       Tags:
