@@ -43,6 +43,19 @@ Parameters:
 
 Resources:
 
+
+
+  MyVpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      EnableDnsSupport: 'true'
+      EnableDnsHostnames: 'true'
+      InstanceTenancy: 'default'
+      Tags:
+      - Key: Name
+        Value: Test-Vpc
+
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
@@ -58,19 +71,10 @@ Resources:
       Tags:
         - Key: Name
           Value: Demoec2  
-      VpcId: !Ref MyVpc
+      
 
 
-  MyVpc:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: !Ref VpcCIDR
-      EnableDnsSupport: 'true'
-      EnableDnsHostnames: 'true'
-      InstanceTenancy: 'default'
-      Tags:
-      - Key: Name
-        Value: Test-Vpc
+  
 
   #create Internetgateway
   InternetGateway:
