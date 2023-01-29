@@ -46,18 +46,19 @@ Resources:
       Description: Allow http and ssh connection to the instance
       SecurityGroupIngress:
       - IpProtocol: tcp
-        FromPort: 80
-        ToPort: 80
+        FromPort: '80'
+        ToPort: '80'
         CidrIp: 0.0.0.0/0
       - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
+        FromPort: '22'
+        ToPort: '22'
         Cidr: 0.0.0.0/0
   
 
       Tags:
       - Key: Name
         Name: DemoEc2-Instance
+      VpcId: MYVPC
  
 
   MyEC2Instance:
