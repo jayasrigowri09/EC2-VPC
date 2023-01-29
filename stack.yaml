@@ -60,8 +60,10 @@ Resources:
         - !Ref MySecurityGroup
         
       AvailabilityZone: !Ref MyAvailabilityZone
-      SubnetId: !Ref Subnet1
       VpcId: !Ref MYVPC
+      SubnetId: !Ref Subnet1
+    
+
 
       Tags:
         - Key: Name
