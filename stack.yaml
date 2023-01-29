@@ -113,7 +113,7 @@ Resources:
       GatewayId: !Ref InternetGateway 
 
   SecurityGroups:
-    Type: AWS::EC2::SecurityGroups
+    Type: AWS::EC2::SecurityGroup
     Properties:
       Description: My SG with port 22, and 8080 inbound
       SecurityGroupIngress:
