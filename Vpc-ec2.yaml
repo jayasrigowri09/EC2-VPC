@@ -23,7 +23,7 @@ Parameters:
   VpcCIDR:
     Type: String
     Description: Enter the IP range.
-    Default: 10.0.0.0/16
+    Default: 10.0.0.0/8
 
   PublicSubnet1CIDR:
     Type: String
