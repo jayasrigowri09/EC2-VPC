@@ -18,7 +18,7 @@ Parameters:
   MyAvailabilityZone:
     Description: Select the AZ
     Type: String
-    Default: ap-south-1a
+    Default: us-west-2
 
   VpcCIDR:
     Type: String
@@ -49,9 +49,9 @@ Resources:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: !Ref VpcCIDR
-      EnableDnsSupport: 'true'
-      EnableDnsHostnames: 'true'
-      InstanceTenancy: 'default'
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      InstanceTenancy: default
       Tags:
       - Key: Name
         Value: Test-Vpc
