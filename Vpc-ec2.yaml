@@ -13,12 +13,12 @@ Parameters:
   
   ImageId:
     Type: String
-    Default: ami-0f1a5f5ada0e7da53
+    Default: ami-00569e54da628d17c
     
   MyAvailabilityZone:
     Description: Select the AZ
     Type: String
-    Default: us-west-2
+    Default: us-west-1a
 
   VpcCIDR:
     Type: String
