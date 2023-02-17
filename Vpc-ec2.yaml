@@ -13,7 +13,7 @@ Parameters:
   
   ImageId:
     Type: String
-    Default: ami-00569e54da628d17c
+    Default: ami-0f1a5f5ada0e7da53
     
   MyAvailabilityZone:
     Description: Select the AZ
@@ -73,7 +73,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       CidrBlock: !Ref PublicSubnet1CIDR
-      AvailabilityZone: !Select [ 0, !GetAZs '' ]
+      AvailabilityZone: !Select [ 0, !GetAZs ]
       VpcId: !Ref MyVpc
       Tags:
          - Key: Name
