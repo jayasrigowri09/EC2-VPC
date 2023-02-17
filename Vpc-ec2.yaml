@@ -13,7 +13,7 @@ Parameters:
   
   ImageId:
     Type: String
-    Default: ami-0f1a5f5ada0e7da53
+    Default: ami-00569e54da628d17c
     
   MyAvailabilityZone:
     Description: Select the AZ
